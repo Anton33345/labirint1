@@ -39,8 +39,11 @@ class Player(GameSprite):
 
 
     def update(self):
-        self.rect.x += self.speedx
-        self.rect.y += self.speedy
+        if self.speedx < 0 and self.rect.left > 0 or self.speedx > 0 and self.rect.right < WIN_WIDTH:
+            self.rect.x += self.speedx
+        
+        if self.speedy < 0 and self.rect.top > 0 or self.speedy > 0 and self.rect.bottom < WIN_HEIGHT:
+            self.rect.y += self.speedy
 
 
 
